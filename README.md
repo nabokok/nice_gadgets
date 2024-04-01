@@ -1,9 +1,9 @@
-# React TypeScript Starter Pack
+# Todo App
+This Todo App is a simple web application that allows users to manage their tasks by adding, editing, completing, and deleting them. It provides a clean and intuitive interface for organizing tasks efficiently.
 
-To use this template click `Use this template`
+## Demo
+https://nabokok.github.io/todo_app/
 
-### Available Scripts
-
-`Deploy` - available to deploy your application to gh-pages
-
-`SCSS Preprocessor` - available to write your styles with modern style language
+## Technologies
+- JavaScript, TypeScript, React
+- HTML, CSS, SCSS
