@@ -6,4 +6,3 @@ https://nabokok.github.io/todo_app/
 
 ## Technologies
 - JavaScript, TypeScript, React
-- HTML, CSS, SCSS
