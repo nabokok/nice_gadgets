@@ -13,18 +13,18 @@ export const TodoContext = React.createContext<TodoContextType>({
   tempTodo: null,
   errorMessage: '',
   updatingTodosIds: [],
-  addNewTodo: () => { },
-  deleteTodo: () => { },
-  updateTodo: () => { },
+  addNewTodo: () => {},
+  deleteTodo: () => {},
+  updateTodo: () => {},
   filter: Status.All,
-  handleFilter: () => { },
-  handleUpdatingTodosIds: () => { },
-  handleError: () => { },
-  handleSetTempTodo: () => { },
+  handleFilter: () => {},
+  handleUpdatingTodosIds: () => {},
+  handleError: () => {},
+  handleSetTempTodo: () => {},
 });
 
 interface Props {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export const TodoProvider: React.FC<Props> = ({ children }) => {
@@ -49,25 +49,19 @@ export const TodoProvider: React.FC<Props> = ({ children }) => {
   };
 
   const deleteTodo = (id: number) => {
-    setTodos(prev => (
-      prev.filter(todo => todo.id !== id)
-    ));
+    setTodos(prev => prev.filter(todo => todo.id !== id));
   };
 
-  const updateTodo = ({
-    title,
-    completed,
-    id,
-  }: Omit<Todo, 'userId'>) => {
-    setTodos(prev => (
+  const updateTodo = ({ title, completed, id }: Omit<Todo, 'userId'>) => {
+    setTodos(prev =>
       prev.map(todo => {
         if (todo.id === id) {
           return { ...todo, title, completed };
         }
 
         return todo;
-      })
-    ));
+      }),
+    );
   };
 
   const handleFilter = (status: Status) => {
@@ -90,32 +84,26 @@ export const TodoProvider: React.FC<Props> = ({ children }) => {
     setTempTodo(todo);
   };
 
-  const todosValue = useMemo(() => ({
-    todos,
-    filteredTodos,
-    filter,
-    tempTodo,
-    errorMessage,
-    updatingTodosIds,
-    addNewTodo,
-    deleteTodo,
-    updateTodo,
-    handleFilter,
-    handleUpdatingTodosIds,
-    handleError,
-    handleSetTempTodo,
-  }), [
-    todos,
-    filteredTodos,
-    filter,
-    tempTodo,
-    errorMessage,
-    updatingTodosIds,
-  ]);
+  const todosValue = useMemo(
+    () => ({
+      todos,
+      filteredTodos,
+      filter,
+      tempTodo,
+      errorMessage,
+      updatingTodosIds,
+      addNewTodo,
+      deleteTodo,
+      updateTodo,
+      handleFilter,
+      handleUpdatingTodosIds,
+      handleError,
+      handleSetTempTodo,
+    }),
+    [todos, filteredTodos, filter, tempTodo, errorMessage, updatingTodosIds],
+  );
 
   return (
-    <TodoContext.Provider value={todosValue}>
-      {children}
-    </TodoContext.Provider>
+    <TodoContext.Provider value={todosValue}>{children}</TodoContext.Provider>
   );
 };

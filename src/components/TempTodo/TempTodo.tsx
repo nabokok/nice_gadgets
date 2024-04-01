@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react/display-name */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useContext } from 'react';
 import { TodoContext } from '../../context/TodoContext';
@@ -8,22 +10,14 @@ export const TempTodo: React.FC = React.memo(() => {
   return (
     <li data-cy="Todo" className="todo">
       <label className="todo__status-label">
-        <input
-          data-cy="TodoStatus"
-          type="checkbox"
-          className="todo__status"
-        />
+        <input data-cy="TodoStatus" type="checkbox" className="todo__status" />
       </label>
 
       <span data-cy="TodoTitle" className="todo__title">
         {tempTodo?.title}
       </span>
 
-      <button
-        type="button"
-        className="todo__remove"
-        data-cy="TodoDelete"
-      >
+      <button type="button" className="todo__remove" data-cy="TodoDelete">
         ×
       </button>
 

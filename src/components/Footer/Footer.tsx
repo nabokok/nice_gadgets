@@ -13,11 +13,8 @@ export const Footer: React.FC<Props> = ({
   activeTodosCount,
   completedTodosIds,
 }) => {
-  const {
-    deleteTodo,
-    handleError,
-    handleUpdatingTodosIds,
-  } = useContext(TodoContext);
+  const { deleteTodo, handleError, handleUpdatingTodosIds } =
+    useContext(TodoContext);
 
   const handleDeleteTodos = () => {
     handleError('');

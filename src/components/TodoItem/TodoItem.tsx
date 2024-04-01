@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useContext, useState } from 'react';
 import cn from 'classnames';
@@ -22,13 +23,11 @@ export const TodoItem: React.FC<Props> = ({ todo }) => {
     updatingTodosIds,
   } = useContext(TodoContext);
 
-  const handleCompleteTodo = (
-    {
-      title,
-      completed,
-      id,
-    }: Omit<Todo, 'userId'>,
-  ) => {
+  const handleCompleteTodo = ({
+    title,
+    completed,
+    id,
+  }: Omit<Todo, 'userId'>) => {
     handleUpdatingTodosIds(id);
     handleError('');
 
@@ -70,11 +69,13 @@ export const TodoItem: React.FC<Props> = ({ todo }) => {
           type="checkbox"
           className="todo__status"
           checked={completed}
-          onChange={() => handleCompleteTodo({
-            title,
-            completed: !completed,
-            id,
-          })}
+          onChange={() =>
+            handleCompleteTodo({
+              title,
+              completed: !completed,
+              id,
+            })
+          }
         />
       </label>
 
@@ -97,12 +98,11 @@ export const TodoItem: React.FC<Props> = ({ todo }) => {
       )}
       <div
         data-cy="TodoLoader"
-        className={cn('modal overlay',
-          { 'is-active': updatingTodosIds.includes(id) })}
+        className={cn('modal overlay', {
+          'is-active': updatingTodosIds.includes(id),
+        })}
       >
-        <div
-          className="modal-background has-background-white-ter"
-        />
+        <div className="modal-background has-background-white-ter" />
         <div className="loader" />
       </div>
     </li>

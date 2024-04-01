@@ -1,10 +1,5 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, {
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import { USER_ID } from '../../constants/user';
 import { addTodos, updateTodos } from '../../api/todos';
@@ -52,7 +47,7 @@ export const Header: React.FC = () => {
 
     handleSetTempTodo({ ...newTodo, id: 0 });
     addTodos(newTodo)
-      .then((todo) => {
+      .then(todo => {
         addNewTodo(todo);
         setValue('');
       })
@@ -66,11 +61,9 @@ export const Header: React.FC = () => {
   };
 
   const handleCompleteAll = () => {
-    const completedTodos = todos
-      .filter(({ completed }) => completed);
+    const completedTodos = todos.filter(({ completed }) => completed);
 
-    const activeTodos = todos
-      .filter(({ completed }) => !completed);
+    const activeTodos = todos.filter(({ completed }) => !completed);
 
     handleError('');
 
@@ -118,7 +111,7 @@ export const Header: React.FC = () => {
           className="todoapp__new-todo"
           placeholder="What needs to be done?"
           value={value}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={e => setValue(e.target.value)}
         />
       </form>
     </header>

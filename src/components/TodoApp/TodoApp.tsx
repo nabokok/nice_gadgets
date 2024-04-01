@@ -34,9 +34,7 @@ export const TodoApp: React.FC = () => {
       <div className="todoapp__content">
         <Header />
 
-        {(!!todos.length || !!tempTodo) && (
-          <TodoList tempTodo={tempTodo} />
-        )}
+        {(!!todos.length || !!tempTodo) && <TodoList tempTodo={tempTodo} />}
 
         {!!todos.length && (
           <Footer
@@ -44,7 +42,6 @@ export const TodoApp: React.FC = () => {
             completedTodosIds={completedTodosIds}
           />
         )}
-
       </div>
 
       <Error />

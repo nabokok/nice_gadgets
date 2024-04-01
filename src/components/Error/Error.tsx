@@ -18,16 +18,15 @@ export const Error: React.FC = () => {
         clearTimeout(timeoutId);
       }
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errorMessage]);
 
   return (
     <div
       data-cy="ErrorNotification"
-      className={cn(
-        'notification is-danger is-light has-text-weight-normal',
-        { hidden: !errorMessage },
-      )}
+      className={cn('notification is-danger is-light has-text-weight-normal', {
+        hidden: !errorMessage,
+      })}
     >
       <button
         data-cy="HideErrorButton"

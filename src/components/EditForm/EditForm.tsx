@@ -1,9 +1,4 @@
-import React, {
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import { Todo } from '../../types/Todo';
 import { TodoContext } from '../../context/TodoContext';
@@ -11,7 +6,7 @@ import { deleteTodos, updateTodos } from '../../api/todos';
 import { Error } from '../../types/Error';
 
 interface Props {
-  todo: Todo,
+  todo: Todo;
   onEditMode: (value: boolean) => void;
 }
 
@@ -93,7 +88,7 @@ export const EditForm: React.FC<Props> = ({ todo, onEditMode }) => {
           className="todo__title-field"
           placeholder="Empty todo will be deleted"
           value={newTitle}
-          onChange={(e) => setNewTitle(e.target.value)}
+          onChange={e => setNewTitle(e.target.value)}
           onBlur={handleEditTodo}
           onKeyUp={handleKeyUp}
         />

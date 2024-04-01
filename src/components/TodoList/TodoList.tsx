@@ -9,9 +9,7 @@ interface Props {
   tempTodo: Todo | null;
 }
 
-export const TodoList: React.FC<Props> = ({
-  tempTodo,
-}) => {
+export const TodoList: React.FC<Props> = ({ tempTodo }) => {
   const { filteredTodos } = useContext(TodoContext);
 
   return (
@@ -19,21 +17,13 @@ export const TodoList: React.FC<Props> = ({
       <ul className="todolist">
         <TransitionGroup>
           {filteredTodos.map(todo => (
-            <CSSTransition
-              key={todo.id}
-              timeout={500}
-              classNames="item"
-            >
+            <CSSTransition key={todo.id} timeout={500} classNames="item">
               <TodoItem todo={todo} />
             </CSSTransition>
           ))}
 
           {tempTodo && (
-            <CSSTransition
-              key={0}
-              timeout={500}
-              classNames="temp-item"
-            >
+            <CSSTransition key={0} timeout={500} classNames="temp-item">
               <TempTodo />
             </CSSTransition>
           )}
